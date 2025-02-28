@@ -1,0 +1,97 @@
+CityID,CityName,Zipcode
+1,Dayton,80563
+2,Buffalo,17420
+3,Chicago,44751
+4,Fremont,20641
+5,Virginia Beach,62389
+6,Austin,00781
+7,Riverside,01439
+8,Arlington,12654
+9,Atlanta,66212
+10,Toledo,52048
+11,Spokane,38103
+12,Tacoma,43085
+13,Akron,83448
+14,Indianapolis,81678
+15,Colorado,88609
+16,Norfolk,88825
+17,St. Louis,19382
+18,Little Rock,81251
+19,Omaha,24733
+20,El Paso,95963
+21,Milwaukee,78846
+22,Baton Rouge,21874
+23,Anaheim,21500
+24,Lincoln,95386
+25,Boston,59548
+26,Des Moines,40742
+27,Mesa,60852
+28,Tucson,34760
+29,Washington,63454
+30,Philadelphia,17498
+31,Wichita,93028
+32,Jackson,40971
+33,Minneapolis,95451
+34,Fort Wayne,48982
+35,Greensboro,35659
+36,Detroit,72819
+37,Fresno,90795
+38,Richmond,72757
+39,Lubbock,58464
+40,Cleveland,51352
+41,Bakersfield,13915
+42,Denver,18752
+43,Glendale,198
+44,Memphis,73999
+45,Dallas,20151
+46,New York,17104
+47,San Francisco,00157
+48,Long Beach,97859
+49,Montgomery,08944
+50,Cincinnati,83634
+51,Portland,79636
+52,Madison,14626
+53,Las Vegas,90989
+54,Albuquerque,55358
+55,Houston,95800
+56,Stockton,46777
+57,Nashville,60874
+58,Columbus,87987
+59,Kansas,56647
+60,Fort Worth,41769
+61,Miami,06794
+62,Mobile,78861
+63,Tulsa,69923
+64,Raleigh,20327
+65,Baltimore,89197
+66,Shreveport,82101
+67,Corpus Christi,78414
+68,Anchorage,29493
+69,Oakland,29029
+70,Rochester,00415
+71,Phoenix,84193
+72,Honolulu,93782
+73,Santa Ana,23419
+74,Tampa,81280
+75,San Antonio,03863
+76,Birmingham,14935
+77,Louisville,04409
+78,San Diego,83701
+79,Oklahoma,40472
+80,New Orleans,35640
+81,Sacramento,81966
+82,Charlotte,39774
+83,Aurora,40050
+84,Newark,31536
+85,St. Petersburg,88713
+86,San Jose,45666
+87,Los Angeles,63756
+88,Seattle,20135
+89,St. Paul,77998
+90,Grand Rapids,70862
+91,Jacksonville,68274
+92,Hialeah,34375
+93,Jersey,55355
+94,Yonkers,07430
+95,Garland,73265
+96,Pittsburgh,14257

@@ -1,0 +1,22 @@
+{% macro render_table(title, headers, rows, anchor) %}
+<h3 id="{{ anchor }}">{{ title }}</h3>
+<table>
+    <thead>
+        <tr>
+            {% for header in headers %}
+                <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            {% for item in row %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p><a href="#header">Назад</a></p>
+{% endmacro %}

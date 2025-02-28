@@ -1,0 +1,65 @@
+{% import "marcos/print_table.html" as macros %}
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <title>Самые высокие здания и сооружения</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2 id="header">Содержание</h2>
+    <ul>
+        <li><a href="#employees">Получить всех сотрудников с информацией о городе, в котором они работают</a></li>
+        <li><a href="#grouped_by_city">Подсчитать количество сотрудников в каждом городе</a></li>
+        <li><a href="#sales">Получить все продажи с информацией о продукте и клиенте</a></li>
+        <li><a href="#grouped_sales_by_product">Группировка продаж по продуктам с подсчетом количества и суммой</a></li>
+        <li><a href="#avg_price">Найти среднюю цену товаров в каждой категории</a></li>
+    </ul>
+
+    <img src="{{ url_for('static', filename='img.png') }}" alt="UML Диаграмма">
+
+    {{
+            macros.render_table(
+                "Список сотрудников",
+                employees.head,
+                employees.body,
+                "employees"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Количество сотрудников по городу",
+                grouped_by_city.head,
+                grouped_by_city.body,
+                "grouped_by_city"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Список продаж",
+                sales.head,
+                sales.body,
+                "sales"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Продажи по каждому продукту",
+                grouped_sales_by_product.head,
+                grouped_sales_by_product.body,
+                "grouped_sales_by_product"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Средняя цена товара по категории",
+                avg_price.head,
+                avg_price.body,
+                "avg_price"
+            )
+    }}
+</body>
+</html>

@@ -1,0 +1,21 @@
+[project]
+name = "nse-task-1"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Bit Maximum",email = "cabamax@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask (>=3.1.0,<4.0.0)",
+    "flask-sqlalchemy (>=3.1.1,<4.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
