@@ -8,6 +8,9 @@
 <body>
     <h2 id="header">Содержание</h2>
     <ul>
+        <li><a href="#super_cool">Пары продавцов с одинаковыми максимальными продажами</a></li>
+        <li><a href="#category_product_sales">Продажи по категории и продуктам (Avg / Min / Max)</a></li>
+        <li><a href="#get_sales_by_city_employee">Продажи по городу и продавцу (Avg / Min / Max)</a></li>
         <li><a href="#employees">Получить всех сотрудников с информацией о городе, в котором они работают</a></li>
         <li><a href="#grouped_by_city">Подсчитать количество сотрудников в каждом городе</a></li>
         <li><a href="#sales">Получить все продажи с информацией о продукте и клиенте</a></li>
@@ -16,6 +19,33 @@
     </ul>
 
     <img src="{{ url_for('static', filename='img.png') }}" alt="UML Диаграмма">
+
+    {{
+            macros.render_table(
+                "Пары продавцов с одинаковыми максимальными продажами",
+                super_cool.head,
+                super_cool.body,
+                "super_cool"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Продажи по категории и продуктам",
+                category_product_sales.head,
+                category_product_sales.body,
+                "category_product_sales"
+            )
+    }}
+
+    {{
+            macros.render_table(
+                "Продажи по городу и продавцу",
+                get_sales_by_city_employee.head,
+                get_sales_by_city_employee.body,
+                "get_sales_by_city_employee"
+            )
+    }}
 
     {{
             macros.render_table(

@@ -1,7 +1,73 @@
 from sqlalchemy import func
+from sqlalchemy.orm import aliased
 
 from config import db
 from models import Customer, Category, City, Product, Employee, Sale
+
+# Запросы
+# 1) Вывести продавцов у кого максимальная сумма продажи однакова (несколько продавцов)
+# 2) Сгрупировать по категории + по товару и вычислить min, max, avg
+# 3) Сгрупировать по Городу + по продавцу и вычислить min, max, avg
+
+
+def super_cool_query_you_will_newer_understand_this():
+    """
+    Вывести продавцов у кого максимальная сумма продажи однакова (несколько продавцов)
+    """
+    max_sales_subquery = (
+        db.session.query(
+            Sale.sale_person_id,
+            func.max(Sale.total_price).label("max_sale")
+        )
+        .group_by(Sale.sale_person_id)
+        .subquery()
+    )
+
+    Employee1 = aliased(Employee)
+    Employee2 = aliased(Employee)
+    max_sales_1 = aliased(max_sales_subquery)
+    max_sales_2 = aliased(max_sales_subquery)
+
+    query = (
+        db.session.query(
+            Employee1.last_name.label("1-й Продавец"),
+            Employee2.last_name.label("2-й Продавец"),
+            max_sales_1.c.max_sale.label("Максимальная продажа")
+        )
+        .join(max_sales_1, Employee1.id == max_sales_1.c.sale_person_id)
+        .join(max_sales_2, max_sales_1.c.max_sale == max_sales_2.c.max_sale)
+        .join(Employee2, Employee2.id == max_sales_2.c.sale_person_id)
+        .filter(Employee1.id < Employee2.id)
+    )
+    return {"head": query.statement.columns.keys(), "body": query.all()}
+
+
+def get_sales_by_category_product():
+    """
+    Сгрупировать по категории + по товару и вычислить min, max, avg
+    """
+    query = db.session.query(
+        Category.name.label("Категория"),
+        Product.name.label("Продукт"),
+        func.avg(Sale.total_price).label("Средняя выручка"),
+        func.min(Sale.total_price).label("Минимальная выручка"),
+        func.max(Sale.total_price).label("Максимальная выручка"),
+    ).select_from(Category).join(Product).join(Sale).group_by(Category.name, Product.name)
+    return {"head": query.statement.columns.keys(), "body": query.all()}
+
+
+def get_sales_by_city_employee():
+    """
+    Сгрупировать по категории + по товару и вычислить min, max, avg
+    """
+    query = db.session.query(
+        City.name.label("Город"),
+        Employee.last_name.label("Фамилия"),
+        func.avg(Sale.total_price).label("Средняя выручка"),
+        func.min(Sale.total_price).label("Минимальная выручка"),
+        func.max(Sale.total_price).label("Максимальная выручка"),
+    ).select_from(City).join(Employee).join(Sale).group_by(City.name, Employee.id)
+    return {"head": query.statement.columns.keys(), "body": query.all()}
 
 
 def get_all_employees():
